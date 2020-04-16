@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace AppCovid
 {
@@ -23,6 +24,14 @@ namespace AppCovid
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Btn_VisualizzaDati_Click(object sender, RoutedEventArgs e)
+        {
+            string path = @"DatiCovid.xml";
+            XDocument xmlDoc = XDocument.Load(path);
+            XElement xmlroot = xmlDoc.Element("root");
+            var xmlrow = xmlroot.Elements("row");
         }
     }
 }

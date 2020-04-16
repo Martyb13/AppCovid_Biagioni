@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <ListBox x:Name="Lst_Dati" HorizontalAlignment="Left" Height="232" Margin="194,74,0,0" VerticalAlignment="Top" Width="383"/>
+        <Button x:Name="Btn_VisualizzaDati" Content="Visualizza Dati" HorizontalAlignment="Left" Margin="302,339,0,0" VerticalAlignment="Top" Height="49" Width="166" Click="Btn_VisualizzaDati_Click"/>
 
     </Grid>
 </Window>

@@ -21,7 +21,6 @@ namespace AppCovid
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<DatiCovid> dati;
         public MainWindow()
         {
             InitializeComponent();
@@ -34,7 +33,6 @@ namespace AppCovid
 
         private void CaricaDati()
         {
-            dati = new List<DatiCovid>();
             string path = @"DatiCovid.xml";
             XDocument xmlDoc = XDocument.Load(path);
             XElement xmlroot = xmlDoc.Element("root");
@@ -74,9 +72,9 @@ namespace AppCovid
                     d.Tamponi = Convert.ToInt32(xmlTamponi.Value);
                     d.NoteIt = xmlNoteIt.Value;
                     d.NoteEn = xmlNoteEn.Value;
-                    dati.Add(d);
+                    Dispatcher.Invoke(() => Lst_Dati.Items.Add(d));
                 }
-                Dispatcher.Invoke(()=>Lst_Dati.ItemsSource = dati);
+               
             }
         }
     }

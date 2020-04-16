@@ -29,6 +29,11 @@ namespace AppCovid
 
         private void Btn_VisualizzaDati_Click(object sender, RoutedEventArgs e)
         {
+            Task.Factory.StartNew(()=>CaricaDati());
+        }
+
+        private void CaricaDati()
+        {
             dati = new List<DatiCovid>();
             string path = @"DatiCovid.xml";
             XDocument xmlDoc = XDocument.Load(path);
@@ -71,7 +76,7 @@ namespace AppCovid
                     d.NoteEn = xmlNoteEn.Value;
                     dati.Add(d);
                 }
-
+                Dispatcher.Invoke(()=>Lst_Dati.ItemsSource = dati);
             }
         }
     }
